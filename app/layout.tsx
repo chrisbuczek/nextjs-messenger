@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Messenger',
+  title: 'Next.js Messenger',
   description: 'Chat blazingly fast for free with your friends!',
 };
 

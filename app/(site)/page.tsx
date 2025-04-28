@@ -8,7 +8,7 @@ export default function Home() {
           alt="logo"
           width={48}
           height={48}
-          className="mx-auto w-auto"
+          className="mx-auto w-auto" //w-auto does nothing here
           src={'/images/logo.png'}
         />
         <h2 className="mt-3 text-center text-3xl font-bold tracking-tight text-gray-800">

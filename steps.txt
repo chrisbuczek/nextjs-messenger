@@ -1,0 +1,2 @@
+Messenger:
+1. Create login/register page (name, email, password) with chosen authentication. (site) folder, AuthForm.tsx
