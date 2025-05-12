@@ -1,2 +1,4 @@
 Messenger:
-1. Create login/register page (name, email, password) with chosen authentication. (site) folder, AuthForm.tsx
+1. Create login/register page (name, email, password for register variant. email, password for login variant) with chosen authentication. (site) folder, AuthForm.tsx, components/Inputs.tsx, use-form-hook, Button.tsx ("login"), AuthSocialButton.tsx (Gihtub icon and Google icon)
+2. Install prisma (npm install -D prisma; npx prisma init) Create account on MongoDB Atlas. Create FREE Cluster. Add user and password. Add ip 0.0.0.0/0. Connect -> VS Code. Replace DATABASE_URL in .env with '/test' and change password.
+3. Create db schema in schema.prisma. Add User model.
