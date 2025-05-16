@@ -2,3 +2,4 @@ Messenger:
 1. Create login/register page (name, email, password for register variant. email, password for login variant) with chosen authentication. (site) folder, AuthForm.tsx, components/Inputs.tsx, use-form-hook, Button.tsx ("login"), AuthSocialButton.tsx (Gihtub icon and Google icon)
 2. Install prisma (npm install -D prisma; npx prisma init) Create account on MongoDB Atlas. Create FREE Cluster. Add user and password. Add ip 0.0.0.0/0. Connect -> VS Code. Replace DATABASE_URL in .env with '/test' and change password.
 3. Create db schema in schema.prisma. Add models: User, Account, Conversation, Message. Then: 'npx prisma db push'.
+4. Adding NextAuth: npm install next-auth@latest @prisma/client @next-auth/prisma-adapter bcrypt. Then npm install -D @types/bcrypt. Add app/libs/prisma.ts singleton PrismaClient. https://authjs.dev/getting-started/adapters/prisma
