@@ -10,7 +10,8 @@
 
 // export default client;
 
-import { PrismaClient } from '@prisma/client';
+// import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from '@/lib/generated/prisma';
 
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
 const client = globalForPrisma.prisma || new PrismaClient();
