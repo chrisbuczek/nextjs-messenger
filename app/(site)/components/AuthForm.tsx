@@ -49,16 +49,18 @@ const AuthForm = () => {
     }
 
     if (variant === 'LOGIN') {
+      console.log('Login', data);
       signIn('credentials', {
-        ...data,
         redirect: false,
+        ...data,
       })
         .then((callback) => {
+          console.log(callback);
           if (callback?.error) {
             toast.error('Invalid credentials');
           }
 
-          if (callback?.ok && callback?.error) {
+          if (callback?.ok && !callback?.error) {
             toast.success('Logged in');
           }
         })
@@ -69,7 +71,17 @@ const AuthForm = () => {
   const socialAction = (action: string) => {
     setIsPending(true);
 
-    // NextAuth Social SignIn
+    signIn(action, { redirect: false })
+      .then((callback) => {
+        if (callback?.error) {
+          toast.error('Invalid Credentials');
+        }
+
+        if (callback?.ok && !callback?.error) {
+          toast.success('Logged in!');
+        }
+      })
+      .finally(() => setIsPending(false));
   };
 
   return (

@@ -4,5 +4,6 @@ Messenger:
 3. Create db schema in schema.prisma. Add models: User, Account, Conversation, Message. Then: 'npx prisma db push'.
 4. Adding NextAuth: npm install next-auth@latest @prisma/client @next-auth/prisma-adapter bcrypt. Then npm install -D @types/bcrypt. Add app/libs/prisma.ts singleton PrismaClient. https://authjs.dev/getting-started/adapters/prisma. Add app/api/auth/[...nextauth].ts and add authOptions.
 5. Add folder api/register and add create user POST route using prismaClient from libs/prisma.ts and NextResponse
-6. Add onSubmit logic in AuthForm. npm install axios.
+6. Add onSubmit logic in AuthForm with signIn from next-auth. npm install axios.
 7. npm install react-hot-toast. Create /app/context folder with ToasterContext.tsx. Add ToasterContext in layout.tsx. Add error toast in AuthForm register inside axios().catch.
+8. Register new OAuth app on github.
