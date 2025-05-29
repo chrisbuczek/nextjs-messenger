@@ -68,20 +68,20 @@ const AuthForm = () => {
     }
   };
 
-  const socialAction = (action: string) => {
+  const socialAction = async (action: string) => {
     setIsPending(true);
 
-    signIn(action, { redirect: false })
-      .then((callback) => {
-        if (callback?.error) {
-          toast.error('Invalid Credentials');
-        }
+    await signIn(action).finally(() => setIsPending(false));
+    // .then((callback) => {
+    //   if (callback?.error) {
+    //     toast.error('Invalid Credentials');
+    //   }
 
-        if (callback?.ok && !callback?.error) {
-          toast.success('Logged in!');
-        }
-      })
-      .finally(() => setIsPending(false));
+    //   if (callback?.ok && !callback?.error) {
+    //     toast.success('Logged in!');
+    //   }
+    // })
+    // .finally(() => setIsPending(false));
   };
 
   return (
