@@ -46,42 +46,47 @@ const AuthForm = () => {
         .post('/api/register', data)
         .catch(() => toast.error('Something went wrong!'))
         .finally(() => setIsPending(false));
+    } else {
+      toast.error(
+        'Sign in with credentials not possible now. Use Github or Google account to login',
+      );
     }
 
-    if (variant === 'LOGIN') {
-      console.log('Login', data);
-      signIn('credentials', {
-        redirect: false,
-        ...data,
-      })
-        .then((callback) => {
-          console.log(callback);
-          if (callback?.error) {
-            toast.error('Invalid credentials');
-          }
+    // if (variant === 'LOGIN') {
+    //   console.log('Login', data);
+    //   signIn('credentials', {
+    //     redirect: false,
+    //     ...data,
+    //   })
+    //     .then((callback) => {
+    //       console.log(callback);
+    //       if (callback?.error) {
+    //         toast.error('Invalid credentials');
+    //       }
 
-          if (callback?.ok && !callback?.error) {
-            toast.success('Logged in');
-          }
-        })
-        .finally(() => setIsPending(false));
-    }
+    //       if (callback?.ok && !callback?.error) {
+    //         toast.success('Logged in');
+    //       }
+    //     })
+    //     .finally(() => setIsPending(false));
+    // }
   };
 
   const socialAction = async (action: string) => {
     setIsPending(true);
+    await signIn(action);
 
-    await signIn(action).finally(() => setIsPending(false));
-    // .then((callback) => {
-    //   if (callback?.error) {
-    //     toast.error('Invalid Credentials');
-    //   }
+    // await signIn(action, { redirect: false })
+    //   .then((callback) => {
+    //     if (callback?.error) {
+    //       toast.error('Invalid Credentials');
+    //     }
 
-    //   if (callback?.ok && !callback?.error) {
-    //     toast.success('Logged in!');
-    //   }
-    // })
-    // .finally(() => setIsPending(false));
+    //     if (callback?.ok && !callback?.error) {
+    //       toast.success('Logged in!');
+    //     }
+    //   })
+    //   .finally(() => setIsPending(false));
   };
 
   return (
